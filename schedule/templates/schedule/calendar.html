@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>Календарь</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+    </style>
+    <link href="../../../static/calendar.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../static/header.css">
+    <link rel="stylesheet" href="../../../static/footer.css">
+    <script async src="../../../static/calendar.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img class="logo block" src="new_logo.png">
+            <div class="container">
+                <a href="#" class="block we">О нас</a>
+                <button class="btn block">Каталог курсов</button>
+            </div>
+            <button class="btn block enter">Войти</button>
+        </div>
+    </header>
+    <div id="cal-wrap">
+        <h1>Расписание</h1>
+        <!-- ВЫБОР ПЕРИОДА -->
+        <div id="cal-date">
+            <select id="cal-mth"></select>
+            <select id="cal-yr"></select>
+        </div>
+        <!-- КАЛЕНДАРЬ -->
+        <div id="cal-container"></div>
+        <!-- ФОРМА СОБЫТИЯ -->
+        <form id="cal-event">
+            <h1 id="evt-head"></h1>
+            <div id="evt-date"></div>
+            <textarea id="evt-details" required></textarea>
+            <input id="evt-close" type="button" value="Закрыть"/>
+            <input id="evt-del" type="button" value="Удалить"/>
+            <input id="evt-save" type="submit" value="Сохранить"/>
+        </form>
+    </div>
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-col">
+                <h4>О нас</h4>
+            </div>
+            <div class="footer-col">
+                <h4>Присоединяйся</h4>
+                <div class="social-links">
+                    <a href="https://t.me/LosPiesDescalzos">ТГ</a>
+                    <a href="https://vk.com/pies_descalzos">ВК</a>
+                    <a href="https://github.com/LosPiesDescalzos">Git</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Что-то еще</h4>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
