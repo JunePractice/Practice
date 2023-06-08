@@ -17,8 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from schedule.views import calendar
+from schedule.views import index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('schedule/', calendar, name='calendar'),
+    path('', index, name='index'),
 ]

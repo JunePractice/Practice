@@ -1,0 +1,97 @@
+.slider {
+    position: relative;
+    width: 100%;
+    height: 926px;
+    overflow: hidden;
+}
+
+.slider img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slider img.active {
+    opacity: 1;
+}
+
+
+
+
+.slider .feedback-field {
+    position: absolute;
+    margin-left: 25%;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+}
+
+.photo {
+    width: 380px;
+    height: 380px;
+    border-radius: 50%;
+    background: url(sofa.jpg) no-repeat -100px ;
+    background-size: auto 380px;
+    margin-right: 50px;
+}
+.slider .feedback-text {
+    color: #293241;
+    width: 400px;
+    text-align: left;
+    margin-top: -115px;
+}
+
+.slider .feedback-text h1 {
+    color: #293241;
+    padding-bottom: 60px;
+}
+
+.slider .feedback-text p {
+    color: #293241;
+}
+
+.slider .feedback-field.active {
+    opacity: 1;
+}
+
+
+
+
+
+
+
+.slider button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    color: #24262b;
+}
+
+.slider button {
+    width: 60px;
+    height: 25px;
+}
+
+.slider button.prev {
+    left: 20px;
+}
+
+.slider button.next {
+    right: 20px;
+}
+
+.slider button.prevFeedback {
+    left: 20px;
+}
+
+.slider button.nextFeedback {
+    right: 20px;
+}
