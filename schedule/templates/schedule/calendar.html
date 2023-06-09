@@ -6,15 +6,15 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
     </style>
-    <link href="../../../static/calendar.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../../static/header.css">
-    <link rel="stylesheet" href="../../../static/footer.css">
-    <script async src="../../../static/calendar.js"></script>
+    <link href="../../../static/css/calendar.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../static/css/header.css">
+    <link rel="stylesheet" href="../../../static/css/footer.css">
+    <script async src="../../../static/js/calendar.js"></script>
 </head>
 <body>
     <header>
         <div class="container">
-            <img class="logo block" src="../../../static/new_logo.png">
+            <img class="logo block" src="../../../static/img/new_logo.png">
             <div class="container">
                 <a href="#" class="block we">О нас</a>
                 <button class="btn block">Каталог курсов</button>
@@ -35,7 +35,7 @@
         <form id="cal-event">
             <h1 id="evt-head"></h1>
             <div id="evt-date"></div>
-            <textarea id="evt-details" required></textarea>
+            <textarea id="evt-details" required placeholder="text"></textarea>
             <input id="evt-close" type="button" value="Закрыть"/>
             <input id="evt-del" type="button" value="Удалить"/>
             <input id="evt-save" type="submit" value="Сохранить"/>

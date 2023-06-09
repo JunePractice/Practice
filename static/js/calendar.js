@@ -43,7 +43,7 @@ cal.hMth.appendChild(opt);
 }
 cal.hMth.onchange = cal.list;
 // ДОБАВИТЬ ВЫБОР ГОДОВ
-// Установим в диапазоне 10 лет. Измените это, как вам нравится.
+// Установим в диапазоне 10 лет.
 for (let i=nowYear-10; i<=nowYear+10; i++) {
 let opt = document.createElement("option");
 opt.value = i;
@@ -58,8 +58,8 @@ cal.list();
 // СОЗДАТЬ КАЛЕНДАРЬ НА ВЫБРАННЫЙ МЕСЯЦ
 list : () => {
 // ОСНОВНЫЕ РАСЧЕТЫ - ДНИ В МЕСЯЦЕ, ДЕНЬ НАЧАЛА + КОНЕЦ
-// Примечание. Январь равен 0, а декабрь — 11.
-// Примечание. Вс – 0, а сб – 6.
+// Январь равен 0, а декабрь — 11.
+// Вс– 0, а сб– 6.
 cal.sMth = parseInt(cal.hMth.value); // выбранный месяц
 cal.sYear = parseInt(cal.hYear.value); // выбранный год
 let daysInMth = new Date(cal.sYear, cal.sMth+1, 0).getDate(), // количество дней в выбранном месяце

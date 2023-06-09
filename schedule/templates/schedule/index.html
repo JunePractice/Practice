@@ -2,11 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    {% load static %}
     <title>Title</title>
-    <link rel="stylesheet" href="../../../static/custom.css">
-    <link rel="stylesheet" href="../../../static/footer.css">
-    <link rel="stylesheet" href="../../../static/header.css">
-    <link rel="stylesheet" href="../../../static/slider.css">
+<link type="text/css" href="{% static 'css/custom.css' %}" rel="stylesheet" />
+ <link type="text/css" href="{% static 'css/footer.css' %}" rel="stylesheet" />
+ <link type="text/css" href="{% static 'css/header.css' %}" rel="stylesheet" />
+<link type="text/css" href="{% static 'css/slider.css' %}" rel="stylesheet" />
+{# <link rel="stylesheet" href="../../../static/custom.css">#}
+{#    <link rel="stylesheet" href="../../../static/footer.css">#}
+{#   <link rel="stylesheet" href="../../../static/header.css">#}
+{#   <link rel="stylesheet" href="../../../static/slider.css">#}
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
     </style>
@@ -16,7 +22,7 @@
 
 <header>
 <div class="container">
-    <img class="logo block" src="../../../static/new_logo.png">
+    <img class="logo block" src="{% static 'img/new_logo.png' %}">
     <div class="container">
         <a href="#" class="block we">О нас</a>
         <button class="btn block">Каталог курсов</button>
@@ -25,13 +31,14 @@
 </div>
 </header>
 
-<div class="slider" id="slider">
-        <img src="../../../static/image1.jpg" alt="alt">
-        <img src="../../../static/image2.jpg" alt="alt">
-        <img src="../../../static/image3.jpg" alt="alt">
+<div class="slider" id="advertisement">
+   <img class ="advertisementImg" src="{% static 'img/img1.svg' %}" alt="alt">
+   <img class ="advertisementImg" src="{% static 'img/img2.svg' %}" alt="alt">
+   <img class ="advertisementImg" src="{% static 'img/img3.svg' %}" alt="alt">
         <button class="prev">Prev</button>
         <button class="next">Next</button>
 </div>
+<script src="{% static 'js/slider.js' %}"></script>
 <div class="smth">
     <div class="smth-text-first">
         <h1>Какой-то заголовок</h1>
@@ -45,75 +52,31 @@
 </div>
 
 <div id="cards">
-
+  {% for card in cards %}
         <div class="card">
             <div class="front">
                 <p>10-10</p>
                 <h1>
-                    Первая карточка
+                    {{ card.name }}
                 </h1>
-                <p>Рыбатекст используется дизайнерами, проектировщиками и фронтендерами, когда нужно быстро заполнить макеты или прототипы содержимым. Это тестовый контент, который не должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в деле.
+                <p style="font-size: 1em;">
+                    {{ card.description }}
                 </p>
             </div>
             <div class="back">
                 <p>10-12</p>
                 <h1>
-                    Какой-то другой текст
+                     {{ card.price }}
                 </h1>
-                <p>Мой дядя самых честных правил,
-                    Когда не в шутку занемог,
-                    Он уважать себя заставил
-                    И лучше выдумать не мог.
-                </p>
+                <p>{{ card.plan1 }}</p>
+                <p>{{ card.plan2 }}</p>
+                <p>{{ card.plan3 }}</p>
+                <p>{{ card.plan4 }}</p>
+                <p>{{ card.plan5 }}</p>
+                <p>{{ card.plan6 }}</p>
             </div>
         </div>
-
-
-    <div class="card">
-        <div class="front">
-            <p>10-12</p>
-            <h1>
-               Вторая карточка
-            </h1>
-            <p>Рыбатекст используется дизайнерами, проектировщиками и фронтендерами, когда нужно быстро заполнить макеты или прототипы содержимым. Это тестовый контент, который не должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в деле.
-            </p>
-        </div>
-        <div class="back">
-            <p>10-12</p>
-            <h1>
-                Какой-то другой текст
-            </h1>
-            <p>
-                Мой дядя самых честных правил,
-                Когда не в шутку занемог,
-                Он уважать себя заставил
-                И лучше выдумать не мог.
-            </p>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="front">
-            <p>10-12</p>
-            <h1>
-                Третья карточка
-            </h1>
-            <p>Рыбатекст используется дизайнерами, проектировщиками и фронтендерами, когда нужно быстро заполнить макеты или прототипы содержимым. Это тестовый контент, который не должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в деле.
-            </p>
-        </div>
-        <div class="back">
-            <p>10-12</p>
-            <h1>
-                Какой-то другой текст
-            </h1>
-            <p>
-                Мой дядя самых честных правил,
-                Когда не в шутку занемог,
-                Он уважать себя заставил
-                И лучше выдумать не мог.
-            </p>
-        </div>
-    </div>
+    {% endfor %}
 </div>
 
 <div class="smth">
@@ -138,35 +101,24 @@
 
 <div id="feedback" class="slider">
     <h1 class="name">Отзывы</h1>
+    {% for user in users %}
     <div class="feedback-field">
-        <div class="photo"></div>
+        <div class="photo"><img src="{{ user.image }}"></div>
         <div class="feedback-text">
-            <h1>Катя</h1>
-            <p>Все супер, это нечто! восторг! хочу еще! круто! ваааааааааааааааааааааааау</p>
+            <h1 style="margin-bottom: 20px;">{{ user.name }}</h1>
+            <p>{{ user.description }}</p>
         </div>
     </div>
-    <div class="feedback-field">
-        <div class="photo"></div>
-        <div class="feedback-text">
-            <h1>Соня</h1>
-            <p>Я в восторге!</p>
-        </div>
-    </div>
-    <div class="feedback-field">
-        <div class="photo"></div>
-        <div class="feedback-text">
-            <h1>Мартин</h1>
-            <p>Это было увлекательно</p>
-        </div>
-    </div>
+    {% endfor %}
     <button class="prevFeedback">Prev</button>
     <button class="nextFeedback">Next</button>
 </div>
+<script src="{% static 'js/feedback_slider.js' %}"></script>
 
 <footer id="footer">
     <div class="container">
             <div class="footer-col">
-                <h4>О нас</h4>
+                <h4><a href="#">О нас</a></h4>
             </div>
         <div class="footer-col">
             <h4>Присоединяйся</h4>
@@ -177,11 +129,9 @@
             </div>
         </div>
         <div class="footer-col">
-            <h4>Что-то еще</h4>
+            <h4><a href="#">Что-то еще</a></h4>
         </div>
     </div>
 </footer>
-
-<script src="../../../static/slider.js"></script>
 </body>
 </html>
