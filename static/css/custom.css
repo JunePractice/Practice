@@ -100,12 +100,12 @@ button {
     justify-content: space-around;
     background-color: rgb(152, 193, 217, 0.7);
     align-items: flex-start;
-    height: 835px;
+    height: 700px;
 }
 
 .card {
     width: calc((100% - 980px) / 2);
-    height: 600px;
+    height: 500px;
     cursor: pointer;
     transform: translate(-15%, 16%);
     border-radius: 30px;

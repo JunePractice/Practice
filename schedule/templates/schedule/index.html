@@ -50,23 +50,23 @@
 </div>
 
 <div id="cards">
-  {% for card in cards %}
+  {% for course in random_courses %}
         <div class="card">
             <div class="front">
-                <p>10-10</p>
+                <p>вот это курс!</p>
                 <h1>
-                    {{ card.name }}
+                    {{ course.name }}
                 </h1>
                 <p style="font-size: 1em;">
-                    {{ card.description }}
+                    {{ course.description }}
                 </p>
             </div>
             <div class="back">
-                <p>10-12</p>
+                <p>вот это курс!</p>
                 <h1>
-                     {{ card.price }}
+                     {{ course.price }} рублей
                 </h1>
-                <p>{{ card.plan1 }}</p>
+                <p>{{ course.duration_days}} продуктивных дней</p>
             </div>
         </div>
     {% endfor %}
