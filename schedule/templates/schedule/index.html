@@ -67,11 +67,6 @@
                      {{ card.price }}
                 </h1>
                 <p>{{ card.plan1 }}</p>
-                <p>{{ card.plan2 }}</p>
-                <p>{{ card.plan3 }}</p>
-                <p>{{ card.plan4 }}</p>
-                <p>{{ card.plan5 }}</p>
-                <p>{{ card.plan6 }}</p>
             </div>
         </div>
     {% endfor %}
@@ -101,12 +96,12 @@
     <h1 class="name">Отзывы</h1>
     {% for review in reviews %}
     <div class="feedback-field">
-{#        <div class="photo"><img src="{{ user.image }}"></div>#}
+        <div class="photo"><img src="{{ review.user.account.photo.url }}"></div>
         <div class="feedback-text">
-            <h1 style="margin-bottom: 20px;">{{ review.user.username  }}</h1>
+            <h1 style="margin-bottom: 20px;">{{ review.user.first_name }} {{ review.user.last_name}}</h1>
              <p>{{ review.course }}</p>
             <p>{{ review.description }}</p>
-            <p>{{ review.rating }} звезд{{ review.rating|pluralize:"а,ы,"}}</p>
+{#            <p>{{ review.rating }} звезд{{ review.rating|pluralize:"а,ы,"}}</p>#}
 
         </div>
     </div>
