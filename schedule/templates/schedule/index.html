@@ -1,17 +1,15 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    {% load static %}
+
     <title>Title</title>
 <link type="text/css" href="{% static 'css/custom.css' %}" rel="stylesheet" />
  <link type="text/css" href="{% static 'css/footer.css' %}" rel="stylesheet" />
  <link type="text/css" href="{% static 'css/header.css' %}" rel="stylesheet" />
 <link type="text/css" href="{% static 'css/slider.css' %}" rel="stylesheet" />
-{# <link rel="stylesheet" href="../../../static/custom.css">#}
-{#    <link rel="stylesheet" href="../../../static/footer.css">#}
-{#   <link rel="stylesheet" href="../../../static/header.css">#}
-{#   <link rel="stylesheet" href="../../../static/slider.css">#}
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
@@ -101,12 +99,15 @@
 
 <div id="feedback" class="slider">
     <h1 class="name">Отзывы</h1>
-    {% for user in users %}
+    {% for review in reviews %}
     <div class="feedback-field">
-        <div class="photo"><img src="{{ user.image }}"></div>
+{#        <div class="photo"><img src="{{ user.image }}"></div>#}
         <div class="feedback-text">
-            <h1 style="margin-bottom: 20px;">{{ user.name }}</h1>
-            <p>{{ user.description }}</p>
+            <h1 style="margin-bottom: 20px;">{{ review.user.username  }}</h1>
+             <p>{{ review.course }}</p>
+            <p>{{ review.description }}</p>
+            <p>{{ review.rating }} звезд{{ review.rating|pluralize:"а,ы,"}}</p>
+
         </div>
     </div>
     {% endfor %}
