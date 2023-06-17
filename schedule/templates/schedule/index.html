@@ -39,7 +39,7 @@
 <script src="{% static 'js/slider.js' %}"></script>
 <div class="smth">
     <div class="smth-text-first">
-        <h1>Какой-то заголовок</h1>
+        <h1 class="underline">Какой-то заголовок</h1>
         <h2>Рыбатекст используется дизайнерами, проектировщиками и фронтендерами, когда нужно быстро заполнить макеты или прототипы содержимым. Это тестовый контент, который не должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в деле.Это тестовый контент, который не должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в деле.
         </h2>
     </div>
@@ -78,7 +78,7 @@
         <div class="rectangle fourth"></div>
     </div>
     <div class="smth-text-second">
-        <h1>Какой-то заголовок</h1>
+        <h1 class="underline">Какой-то заголовок</h1>
         <h2>Рыбатекст используется дизайнерами, проектировщиками и фронтендерами, когда нужно быстро заполнить макеты или прототипы содержимым. Это тестовый контент, который не должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в деле.Это тестовый контент, который не должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в деле.
         </h2>
     </div>
@@ -87,8 +87,8 @@
 <div id="news">
     <h1>Подписаться на новости </h1>
     <div class="sub">
-        <input type="text" value="Ваша почта">
-        <button>Подписаться</button>
+        <input name="email" type="email" value="Ваша почта">
+        <button type="submit">Подписаться</button>
     </div>
 </div>
 
@@ -102,7 +102,6 @@
              <p>{{ review.course }}</p>
             <p>{{ review.description }}</p>
 {#            <p>{{ review.rating }} звезд{{ review.rating|pluralize:"а,ы,"}}</p>#}
-
         </div>
     </div>
     {% endfor %}
@@ -114,10 +113,10 @@
 <footer id="footer">
     <div class="container">
             <div class="footer-col">
-                <h4><a href="#">О нас</a></h4>
+                <h4><a class="underline" href="#">О нас</a></h4>
             </div>
         <div class="footer-col">
-            <h4>Присоединяйся</h4>
+            <h4 class="underline">Присоединяйся</h4>
             <div class="social-links">
                 <a class="fa fa-telegram" href="#" target="_blank"></a>
                 <a class="fa fa-vk" href="#" target="_blank"></a>
@@ -125,7 +124,7 @@
             </div>
         </div>
         <div class="footer-col">
-            <h4><a href="#">Что-то еще</a></h4>
+            <h4><a class="underline" href="#">Что-то еще</a></h4>
         </div>
     </div>
 </footer>
