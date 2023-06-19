@@ -6,11 +6,11 @@
     <meta charset="UTF-8">
 
     <title>Title</title>
-<link type="text/css" href="{% static 'css/custom.css' %}" rel="stylesheet" />
- <link type="text/css" href="{% static 'css/footer.css' %}" rel="stylesheet" />
- <link type="text/css" href="{% static 'css/header.css' %}" rel="stylesheet" />
-<link type="text/css" href="{% static 'css/slider.css' %}" rel="stylesheet" />
-<link rel="stylesheet" href="../../../static/font-awesome-4.7.0/css/font-awesome.css">
+    <link type="text/css" href="{% static 'css/custom.css' %}" rel="stylesheet"/>
+    <link type="text/css" href="{% static 'css/footer.css' %}" rel="stylesheet"/>
+    <link type="text/css" href="{% static 'css/header.css' %}" rel="stylesheet"/>
+    <link type="text/css" href="{% static 'css/slider.css' %}" rel="stylesheet"/>
+    <link rel="stylesheet" href="../../../static/font-awesome-4.7.0/css/font-awesome.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
     </style>
@@ -18,29 +18,70 @@
 </head>
 <body>
 
+  <style>
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.4);
+    }
+
+    .modal-content {
+      background-color: #fefefe;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  </style>
+
+
 <header>
-<div class="container">
-    <img class="logo block" src="{% static 'img/new_logo.png' %}">
     <div class="container">
-        <a href="#" class="block we">О нас</a>
-        <button class="btn block">Каталог курсов</button>
+        <img class="logo block" src="{% static 'img/new_logo.png' %}">
+        <div class="container">
+            <a href="#" class="block we">О нас</a>
+            <button class="btn block">Каталог курсов</button>
+        </div>
+        <button class="btn block enter">Войти</button>
     </div>
-    <button class="btn block enter">Войти</button>
-</div>
 </header>
 
 <div class="slider" id="advertisement">
-   <img class ="advertisementImg" src="{% static 'img/img1.svg' %}" alt="alt">
-   <img class ="advertisementImg" src="{% static 'img/img2.svg' %}" alt="alt">
-   <img class ="advertisementImg" src="{% static 'img/img3.svg' %}" alt="alt">
-        <button class="prev">Prev</button>
-        <button class="next">Next</button>
+    <img class="advertisementImg" src="{% static 'img/img1.svg' %}" alt="alt">
+    <img class="advertisementImg" src="{% static 'img/img2.svg' %}" alt="alt">
+    <img class="advertisementImg" src="{% static 'img/img3.svg' %}" alt="alt">\
+    <div class="slider_button">
+        <div class="prev scroll"></div>
+        <div class="next scroll"></div>
+    </div>
 </div>
 <script src="{% static 'js/slider.js' %}"></script>
 <div class="smth">
     <div class="smth-text-first">
         <h1 class="underline">Какой-то заголовок</h1>
-        <h2>Рыбатекст используется дизайнерами, проектировщиками и фронтендерами, когда нужно быстро заполнить макеты или прототипы содержимым. Это тестовый контент, который не должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в деле.Это тестовый контент, который не должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в деле.
+        <h2>Рыбатекст используется дизайнерами, проектировщиками и фронтендерами, когда нужно быстро заполнить макеты
+            или прототипы содержимым. Это тестовый контент, который не должен нести никакого смысла, лишь показать
+            наличие самого текста или продемонстрировать типографику в деле.Это тестовый контент, который не должен
+            нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в деле.
         </h2>
     </div>
     <div>
@@ -50,7 +91,7 @@
 </div>
 
 <div id="cards">
-  {% for course in random_courses %}
+    {% for course in random_courses %}
         <div class="card">
             <div class="front">
                 <p>вот это курс!</p>
@@ -64,9 +105,9 @@
             <div class="back">
                 <p>вот это курс!</p>
                 <h1>
-                     {{ course.price }} рублей
+                    {{ course.price }} рублей
                 </h1>
-                <p>{{ course.duration_days}} продуктивных дней</p>
+                <p>{{ course.duration_days }} продуктивных дней</p>
             </div>
         </div>
     {% endfor %}
@@ -79,7 +120,10 @@
     </div>
     <div class="smth-text-second">
         <h1 class="underline">Какой-то заголовок</h1>
-        <h2>Рыбатекст используется дизайнерами, проектировщиками и фронтендерами, когда нужно быстро заполнить макеты или прототипы содержимым. Это тестовый контент, который не должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в деле.Это тестовый контент, который не должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в деле.
+        <h2>Рыбатекст используется дизайнерами, проектировщиками и фронтендерами, когда нужно быстро заполнить макеты
+            или прототипы содержимым. Это тестовый контент, который не должен нести никакого смысла, лишь показать
+            наличие самого текста или продемонстрировать типографику в деле.Это тестовый контент, который не должен
+            нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в деле.
         </h2>
     </div>
 </div>
@@ -87,34 +131,59 @@
 <div id="news">
     <h1>Подписаться на новости </h1>
     <div class="sub">
-        <input name="email" type="email" value="Ваша почта">
-        <button type="submit">Подписаться</button>
+        <form method="post" action="{% url 'index' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Подписаться</button>
+        </form>
+         {% if message %}
+    <div class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>{{ message }}</p>
+      </div>
+    </div>
+    <script>
+      var modal = document.querySelector('.modal');
+      var btn = document.querySelector('.close');
+      btn.onclick = function() {
+        modal.style.display = 'none';
+      }
+      setTimeout(function() {
+        modal.style.display = 'block';
+      });
+    </script>
+  {% endif %}
     </div>
 </div>
+
+
 
 <div id="feedback" class="slider">
     <h1 class="name">Отзывы</h1>
     {% for review in reviews %}
-    <div class="feedback-field">
-        <div class="photo"><img src="{{ review.user.account.photo.url }}"></div>
-        <div class="feedback-text">
-            <h1 style="margin-bottom: 20px;">{{ review.user.first_name }} {{ review.user.last_name}}</h1>
-             <p>{{ review.course }}</p>
-            <p>{{ review.description }}</p>
-{#            <p>{{ review.rating }} звезд{{ review.rating|pluralize:"а,ы,"}}</p>#}
+        <div class="feedback-field">
+            <div class="photo"><img src="{{ review.user.account.photo.url }}"></div>
+            <div class="feedback-text">
+                <h1 style="margin-bottom: 20px;">{{ review.user.first_name }} {{ review.user.last_name }}</h1>
+                <p>{{ review.course }}</p>
+                <p>{{ review.description }}</p>
+                {#            <p>{{ review.rating }} звезд{{ review.rating|pluralize:"а,ы,"}}</p>#}
+            </div>
         </div>
-    </div>
     {% endfor %}
-    <button class="prevFeedback">Prev</button>
-    <button class="nextFeedback">Next</button>
+    <div class="slider_button">
+        <div class="prevFeedback scroll"></div>
+        <div class="nextFeedback scroll"></div>
+    </div>
 </div>
 <script src="{% static 'js/feedback_slider.js' %}"></script>
 
 <footer id="footer">
     <div class="container">
-            <div class="footer-col">
-                <h4><a class="underline" href="#">О нас</a></h4>
-            </div>
+        <div class="footer-col">
+            <h4><a class="underline" href="#">О нас</a></h4>
+        </div>
         <div class="footer-col">
             <h4 class="underline">Присоединяйся</h4>
             <div class="social-links">

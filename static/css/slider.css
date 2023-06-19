@@ -8,7 +8,7 @@
     height: 661px;
 }
 
-.advertisementImg{
+.advertisementImg {
     position: absolute;
     top: 0;
     left: 0;
@@ -22,8 +22,6 @@
 .advertisementImg.active {
     opacity: 1;
 }
-
-
 
 
 .slider .feedback-field {
@@ -43,7 +41,7 @@
     border-radius: 50%;
     background-size: auto 380px;
     margin-right: 50px;
-     overflow: hidden;
+    overflow: hidden;
 }
 
 .photo img {
@@ -73,6 +71,7 @@
     width: 100%;
     background-color: #98C1D9;
 }
+
 #feedback .name {
     color: #293241;
     padding-top: 20px;
@@ -81,31 +80,125 @@
 
 /*-----button-----*/
 
-.slider button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-    color: #24262b;
+/*.slider button {*/
+/*    position: absolute;*/
+/*top: 50%;*/
+/*transform: translateY(-50%);*/
+/*z-index: 10;*/
+/*color: #24262b;*/
+/* width: 60px;*/
+/*height: 25px;*/
+/*}*/
+
+/*.slider button.prev {*/
+/*    left: 20px;*/
+/*}*/
+
+/*.slider button.next {*/
+/*    right: 20px;*/
+/*}*/
+
+/*.slider button.prevFeedback {*/
+/*    left: 20px;*/
+/*}*/
+
+/*.slider button.nextFeedback {*/
+/*    right: 20px;*/
+/*}*/
+
+.slider_button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.slider button {
+
+.scroll {
+    position: sticky;
+    margin-top: 25%;
     width: 60px;
-    height: 25px;
+    height: 60px;
+    border: none;
+    border-radius: 50%;
+    /*position: relative;*/
+    /*margin: 22% auto 35px auto;*/
+    box-sizing: border-box;
 }
 
-.slider button.prev {
-    left: 20px;
+.scroll::before {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-left: 2px solid #337AB7;
+    border-bottom: 2px solid #337AB7;
 }
 
-.slider button.next {
-    right: 20px;
+.next{
+    position: sticky;
+     animation: right 1.5s infinite;
 }
 
-.slider button.prevFeedback {
-    left: 20px;
+.prev{
+        position: sticky;
+    margin-left: 45px;
+    animation: left 1.5s infinite;
 }
 
-.slider button.nextFeedback {
-    right: 20px;
+
+.next::before {
+     transform: rotate(-135deg);
+}
+
+.prev::before {
+    transform: rotate(45deg);
+}
+
+
+.nextFeedback{
+    margin-right: 20px;
+     animation: right 1.5s infinite;
+}
+
+.prevFeedback{
+    animation: left 1.5s infinite;
+}
+
+
+.nextFeedback::before {
+     transform: rotate(-135deg);
+}
+
+.prevFeedback::before {
+    transform: rotate(45deg);
+}
+
+
+@keyframes right {
+    0% {
+        transform: translate(0);
+    }
+    20% {
+        transform: translateX(15px);
+    }
+    40% {
+        transform: translate(0);
+    }
+}
+
+@keyframes left {
+    0% {
+        transform: translate(0);
+    }
+    20% {
+        transform: translateX(-15px);
+    }
+    40% {
+        transform: translate(0);
+    }
+}
+
+div:focus {
+  outline: none; !important;
 }

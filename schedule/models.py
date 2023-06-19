@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from datetime import timedelta
+from django.db import models
 
 
 class Course(models.Model):
@@ -21,5 +21,14 @@ class Review(models.Model):
 
     def __str__(self):
         return f'{self.user.username} оставил(а) отзыв на курс "{self.course.name}"'
+
     class Meta:
         ordering = ['-rating']
+
+
+class Subscriber(models.Model):
+    email = models.EmailField(unique=True)
+    subscribed_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.email

@@ -143,6 +143,11 @@ button {
     width: 100%;
     text-align: center;
 }
+
+#news label{
+    display: none;
+}
+
 #news h1 {
     color: #293241;
     padding-top: 60px;
@@ -156,7 +161,7 @@ button {
 .sub input {
     height: 50px;
     width: 190px;
-    color: #98C1D9;
+    color: #293241;
     text-align: center;
 }
 .sub button {
@@ -166,4 +171,8 @@ button {
     width: 190px;
     background-color: #98C1D9;
     color: #293241;
+}
+
+.errorlist {
+    display: none;
 }
