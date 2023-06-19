@@ -155,10 +155,13 @@ button {
 }
 
 .sub {
-    display:inline-flex;
+    display: flex;
+     flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
-.sub input {
+.sub input{
     height: 50px;
     width: 190px;
     color: #293241;
@@ -176,3 +179,41 @@ button {
 .errorlist {
     display: none;
 }
+
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 3;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
+        color: #3D5A80;
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #3D5A80;
+        width: 30%;
+    }
+
+    .modal-content  p{
+        color: #3D5A80;
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #3D5A80;
+        text-decoration: none;
+        cursor: pointer;
+    }

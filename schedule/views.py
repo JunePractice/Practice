@@ -42,26 +42,3 @@ def index(request):
 
 def calendar(request):
     return render(request, 'schedule/calendar.html')
-
-
-# def subscribe(request):
-#     message = ''
-#     if request.method == 'POST':
-#         form = SubscriberForm(request.POST)
-#         if form.is_valid():
-#             email = form.cleaned_data['email']
-#             try:
-#                 subscriber, created = Subscriber.objects.get_or_create(email=email)
-#                 if created:
-#                     subject = 'подписка на рассылку'
-#                     message = 'вы успешно подписались!'
-#                     from_email = settings.DEFAULT_FROM_EMAIL
-#                     send_mail(subject, message, from_email, [email], )
-#             except IntegrityError:
-#                 pass
-#         else:
-#             message = 'Вы уже подписаны!'
-#     else:
-#         form = SubscriberForm()
-#
-#     return render(request, 'schedule/index.html', {'form': form, 'message': message})
