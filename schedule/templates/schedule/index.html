@@ -57,28 +57,28 @@
     </div>
 </div>
 
-{#<div id="cards">#}
-{#    {% for course in random_courses %}#}
-{#        <div class="card">#}
-{#            <div class="front">#}
-{#                <p>вот это курс!</p>#}
-{#                <h1>#}
-{#                    {{ course.name }}#}
-{#                </h1>#}
-{#                <p style="font-size: 1em;">#}
-{#                    {{ course.description }}#}
-{#                </p>#}
-{#            </div>#}
-{#            <div class="back">#}
-{#                <p>вот это курс!</p>#}
-{#                <h1>#}
-{#                    {{ course.price }} рублей#}
-{#                </h1>#}
-{#                <p>{{ course.duration_days }} продуктивных дней</p>#}
-{#            </div>#}
-{#        </div>#}
-{#    {% endfor %}#}
-{#</div>#}
+<div id="cards">
+    {% for course in random_courses %}
+        <div class="card">
+            <div class="front">
+                <p class="meta">вот это курс!</p>
+                <h1>
+                    {{ course.name }}
+                </h1>
+                <p>
+                    {{ course.description }}
+                </p>
+            </div>
+            <div class="back">
+                <p class="meta">вот это курс!</p>
+                <h1>
+                    {{ course.price }} рублей
+                </h1>
+                <p>{{ course.duration_days }} продуктивных дней</p>
+            </div>
+        </div>
+    {% endfor %}
+</div>
 
 <div class="smth">
     <div>
