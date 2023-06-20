@@ -1,11 +1,15 @@
+/*ОБЩИЙ БЛОК ДЛЯ СЛАЙДЕРОВ*/
 .slider {
+    max-width: 1800px;
+    margin: 0 auto;
     position: relative;
     width: 100%;
     overflow: hidden;
 }
 
+/*РЕКЛАМНЫЙ СЛАЙДЕР*/
 #advertisement {
-    height: 661px;
+    height: 660px;
 }
 
 .advertisementImg {
@@ -23,101 +27,99 @@
     opacity: 1;
 }
 
+@media (max-width: 780px) {
+    #advertisement {
+        height: 300px;
+    }
+}
 
-.slider .feedback-field {
+/*СЛАЙДЕР С ОТЗЫВАМИ*/
+#feedback {
+    text-align: center;
+    height: 40vw;
+    background-color: #98C1D9;
+}
+
+.name {
+    color: #293241;
+    padding-top: 3vw;
+}
+
+.feedback-field {
     position: absolute;
-    margin-left: 25%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
     opacity: 0;
+    padding-right: 20px;
+    padding-left: 20px;
 }
 
 .photo {
-    width: 380px;
-    height: 380px;
+    margin-right: 5vw;
     border-radius: 50%;
-    background-size: auto 380px;
-    margin-right: 50px;
+    background-size: auto 25vw;
     overflow: hidden;
-    margin-top: 80px;
+    width: 25vw;
+    height: 25vw;
 }
 
 .photo img {
     object-fit: cover;
-    width: 380px;
-    height: 380px;
+    width: 100%;
+    height: 100%;
 }
 
-
-
-.slider .feedback-text {
+.feedback-text {
+    margin-bottom: 20px;
+    height: 15vw;
     color: #293241;
-    width: 400px;
+    width: 40vw;
     text-align: left;
-    margin-top: -115px;
 }
 
-.slider .feedback-text p {
+.feedback-text p {
     color: #293241;
 }
 
-.slider .feedback-field.active {
+.feedback-field.active {
     opacity: 1;
 }
 
-#feedback {
-    text-align: center;
-    height: 610px;
-    width: 100%;
-    background-color: #98C1D9;
+@media (max-width: 850px) {
+    #feedback {
+        height: 70vw;
+    }
+
+    .feedback-field {
+        height: 100%;
+        margin-bottom: 5vw;
+        flex-direction: column;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .feedback-text {
+        text-align: center;
+        width: 60vw;
+    }
+
 }
 
-
-#feedback .name {
-    color: #293241;
-    /*padding-top: 20px;*/
-    /*padding-bottom: 60px;*/
-}
-
-/*-----button-----*/
-
-/*.slider button {*/
-/*    position: absolute;*/
-/*top: 50%;*/
-/*transform: translateY(-50%);*/
-/*z-index: 10;*/
-/*color: #24262b;*/
-/* width: 60px;*/
-/*height: 25px;*/
-/*}*/
-
-/*.slider button.prev {*/
-/*    left: 20px;*/
-/*}*/
-
-/*.slider button.next {*/
-/*    right: 20px;*/
-/*}*/
-
-/*.slider button.prevFeedback {*/
-/*    left: 20px;*/
-/*}*/
-
-/*.slider button.nextFeedback {*/
-/*    right: 20px;*/
-/*}*/
+/*КНОПКИ СЛАЙДЕРОВ*/
+/*РАЗНЫЕ КЛАССЫ ДЛЯ КАЖДОГО СЛАЙДЕРА ДЛЯ КОРРЕКТНОЙ РАБОТЫ JS*/
 
 .slider_button {
-
- text-align: center;
+    text-align: center;
     display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 100%;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
 }
-
 
 .scroll {
     width: 60px;
@@ -132,23 +134,23 @@
     position: absolute;
     width: 18px;
     height: 18px;
-    border-left: 2px solid #337AB7;
-    border-bottom: 2px solid #337AB7;
+    border-left: 2px solid #293241;
+    border-bottom: 2px solid #293241;
 }
 
-.next{
-     display: inline-block;
+.next {
+    display: inline-block;
     margin-right: 20px;
-     animation: right 1.5s infinite;
+    animation: right 1.5s infinite;
 }
 
-.prev{
-     display: inline-block;
+.prev {
+    display: inline-block;
     animation: left 1.5s infinite;
 }
 
 .next::before {
-     transform: rotate(-135deg);
+    transform: rotate(-135deg);
 }
 
 .prev::before {
@@ -156,18 +158,18 @@
 }
 
 
-.nextFeedback{
+.nextFeedback {
     margin-right: 20px;
-     animation: right 1.5s infinite;
+    animation: right 1.5s infinite;
 }
 
-.prevFeedback{
+.prevFeedback {
     animation: left 1.5s infinite;
 }
 
 
 .nextFeedback::before {
-     transform: rotate(-135deg);
+    transform: rotate(-135deg);
 }
 
 .prevFeedback::before {
@@ -199,6 +201,31 @@
     }
 }
 
-div:focus {
-  outline: none; !important;
-}
+
+/*-----ОБЫЧНЫЕ КНОПКИ-----*/
+
+/*.slider button {*/
+/*    position: absolute;*/
+/*top: 50%;*/
+/*transform: translateY(-50%);*/
+/*z-index: 10;*/
+/*color: #24262b;*/
+/* width: 60px;*/
+/*height: 25px;*/
+/*}*/
+
+/*.slider button.prev {*/
+/*    left: 20px;*/
+/*}*/
+
+/*.slider button.next {*/
+/*    right: 20px;*/
+/*}*/
+
+/*.slider button.prevFeedback {*/
+/*    left: 20px;*/
+/*}*/
+
+/*.slider button.nextFeedback {*/
+/*    right: 20px;*/
+/*}*/

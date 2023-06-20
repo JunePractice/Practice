@@ -18,8 +18,17 @@ ul {
     list-style: none;
 }
 
-/*HEADER*/
+body {
+  font-size: 1em;
+}
 
+@media (max-width: 768px) {
+  body {
+    font-size: 0.7em;
+  }
+}
+
+/*HEADER*/
 header {
     background-color: #3D5A80;
     padding: 10px;

@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, minimum-width=320">
     <title>Title</title>
     <link type="text/css" href="{% static 'css/custom.css' %}" rel="stylesheet"/>
     <link type="text/css" href="{% static 'css/footer.css' %}" rel="stylesheet"/>
@@ -20,7 +20,7 @@
 
 <header>
     <div class="container_header">
-{#        <img class="logo block" src="{% static 'img/new_logo.png' %}">#}
+        {#        <img class="logo block" src="{% static 'img/new_logo.png' %}">#}
         <p>Logo</p>
         <div class="container_outside">
             <a href="#" class="block we">О нас</a>
@@ -40,7 +40,6 @@
     </div>
 </div>
 <script src="{% static 'js/slider.js' %}"></script>
-
 
 
 <div class="smth">
@@ -131,15 +130,15 @@
 <div id="feedback" class="slider">
     <h1 class="name">Отзывы</h1>
     {% for review in reviews %}
-        <div class="feedback-field">
-            <div class="photo"><img src="{{ review.user.account.photo.url }}"></div>
-            <div class="feedback-text">
-                <h1 style="margin-bottom: 20px;">{{ review.user.first_name }} {{ review.user.last_name }}</h1>
-                <p>{{ review.course }}</p>
-                <p>{{ review.description }}</p>
-                {#            <p>{{ review.rating }} звезд{{ review.rating|pluralize:"а,ы,"}}</p>#}
+            <div class="feedback-field">
+                <div class="photo"><img src="{{ review.user.account.photo.url }}"></div>
+                <div class="feedback-text">
+                    <h1>{{ review.user.first_name }} {{ review.user.last_name }}</h1>
+                    <p>{{ review.course }}</p>
+                    <p>{{ review.description }}</p>
+                    {#            <p>{{ review.rating }} звезд{{ review.rating|pluralize:"а,ы,"}}</p>#}
+                </div>
             </div>
-        </div>
     {% endfor %}
     <div class="slider_button">
         <div class="prevFeedback scroll"></div>
