@@ -1,9 +1,6 @@
-button {
-    cursor: pointer;
-}
-
 .smth{
     width: 100%;
+    min-width: 300px;
     height: 690px;
     background-color: #F1FFFF;
     display: flex;
@@ -12,14 +9,14 @@ button {
     align-items: center;
 }
 
-.smth-text-first {
-    margin-right: 500px;
-    min-width: 300px;
-}
+/*.smth-text-first {*/
+/*    margin-right: 500px;*/
+/*    min-width: 300px;*/
+/*}*/
 
 .smth h2 {
     color: #293241;
-    width: 600px;
+    /*width: 600px;*/
     text-align: left;
     margin-left: 30px;
 }
@@ -33,45 +30,76 @@ button {
 }
 
 
-.rectangle{
-    flex-shrink: 1;
-    margin-right: 50px;
-    height: 310px;
-    width: 285px;
-}
+/*.rectangle{*/
+/*    flex-shrink: 1;*/
+/*    margin-right: 50px;*/
+/*    height: 310px;*/
+/*    width: 285px;*/
+/*}*/
 
-.first{
-   background-color: #98C1D9;
-    border-radius: 60px;
-    transform: rotate(18deg);
-}
+/*.first{*/
+/*   background-color: #98C1D9;*/
+/*    border-radius: 60px;*/
+/*    transform: rotate(18deg);*/
+/*}*/
 
-.second {
-    margin-top: -150px;
-    margin-left: -150px;
-    background-color: #3D5A80;
-    border-radius: 60px;
-    transform: rotate(-18deg);
-}
+/*.second {*/
+/*    margin-top: -150px;*/
+/*    margin-left: -150px;*/
+/*    background-color: #3D5A80;*/
+/*    border-radius: 60px;*/
+/*    transform: rotate(-18deg);*/
+/*}*/
 
-.smth-text-second {
-    margin-left: 150px;
-    min-width: 300px;
-}
 
-.third{
-    background-color: #98C1D9;
-    border-radius: 60px;
-    transform: rotate(-18deg);
-    margin-left: 20px;
-}
-.fourth {
-    margin-top: -150px;
-    margin-left: 170px;
-    background-color: #3D5A80;
-    border-radius: 60px;
-    transform: rotate(18deg);
-}
+/*.smth-text-second {*/
+/*    width: 600px;*/
+/*    margin-right: 30px;*/
+/*    margin-left: 150px;*/
+/*    min-width: 300px;*/
+/*}*/
+
+/*!*.smth-text-second {*!*/
+/*!*    margin-left: 150px;*!*/
+/*!*    min-width: 300px;*!*/
+/*!*}*!*/
+
+/*.third{*/
+/*    background-color: #98C1D9;*/
+/*    border-radius: 60px;*/
+/*    transform: rotate(-18deg);*/
+/*    margin-left: 20px;*/
+/*}*/
+/*.fourth {*/
+/*    margin-top: -150px;*/
+/*    margin-left: 170px;*/
+/*    background-color: #3D5A80;*/
+/*    border-radius: 60px;*/
+/*    transform: rotate(18deg);*/
+/*}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #cards{
     display: flex;

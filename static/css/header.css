@@ -1,4 +1,5 @@
-*{
+/*ОБЩИЕ СТИЛИ*/
+* {
     margin: 0;
     padding: 0;
     color: white;
@@ -8,33 +9,57 @@
 a {
     text-decoration: none;
 }
-.container{
+
+button {
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
+}
+
+/*HEADER*/
+
+header {
+    background-color: #3D5A80;
+    padding: 10px;
+}
+
+.container_header {
+    overflow: hidden;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background-color: #3D5A80;
     align-items: center;
+    margin-top: 25px;
     height: 135px;
 }
 
+.container_outside {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
 .block {
+    display: block;
+    margin-right: 20px;
     padding: 30px 30px;
-    background-color: #3D5A80;
     text-align: center;
     height: 60px;
     width: 240px;
 }
 
-.logo{
+.logo {
     width: 20px;
     height: 20px;
     z-index: 2;
 }
 
 .btn {
-    font-size: 24px;
     border: none;
-    outline: none;
+    font-size: 24px;
     background-color: lightblue;
     padding: 7px 7px;
     height: 60px;
@@ -49,9 +74,44 @@ a {
 }
 
 .we {
+    margin-right: auto;
     font-size: 24px;
     margin-top: -20px;
     height: 0;
     width: 80px;
     color: white;
+}
+
+@media (max-width: 780px) {
+
+    .container_header {
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background-color: #3D5A80;
+        height: 300px;
+        margin-top: -20px;
+    }
+
+    .btn {
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+
+    .container_outside {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .we {
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+
 }

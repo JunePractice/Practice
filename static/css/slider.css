@@ -27,7 +27,6 @@
 .slider .feedback-field {
     position: absolute;
     margin-left: 25%;
-    margin-bottom: 20px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -42,6 +41,7 @@
     background-size: auto 380px;
     margin-right: 50px;
     overflow: hidden;
+    margin-top: 80px;
 }
 
 .photo img {
@@ -49,6 +49,8 @@
     width: 380px;
     height: 380px;
 }
+
+
 
 .slider .feedback-text {
     color: #293241;
@@ -72,10 +74,11 @@
     background-color: #98C1D9;
 }
 
+
 #feedback .name {
     color: #293241;
-    padding-top: 20px;
-    padding-bottom: 60px;
+    /*padding-top: 20px;*/
+    /*padding-bottom: 60px;*/
 }
 
 /*-----button-----*/
@@ -107,23 +110,21 @@
 /*}*/
 
 .slider_button {
+
+ text-align: center;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
 }
 
 
 .scroll {
-    position: sticky;
-    margin-top: 25%;
     width: 60px;
     height: 60px;
     border: none;
     border-radius: 50%;
-    /*position: relative;*/
-    /*margin: 22% auto 35px auto;*/
-    box-sizing: border-box;
+    position: relative;
 }
 
 .scroll::before {
@@ -136,16 +137,15 @@
 }
 
 .next{
-    position: sticky;
+     display: inline-block;
+    margin-right: 20px;
      animation: right 1.5s infinite;
 }
 
 .prev{
-        position: sticky;
-    margin-left: 45px;
+     display: inline-block;
     animation: left 1.5s infinite;
 }
-
 
 .next::before {
      transform: rotate(-135deg);

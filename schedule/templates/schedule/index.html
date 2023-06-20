@@ -19,9 +19,10 @@
 <body>
 
 <header>
-    <div class="container">
-        <img class="logo block" src="{% static 'img/new_logo.png' %}">
-        <div class="container">
+    <div class="container_header">
+{#        <img class="logo block" src="{% static 'img/new_logo.png' %}">#}
+        <p>Logo</p>
+        <div class="container_outside">
             <a href="#" class="block we">О нас</a>
             <button class="btn block">Каталог курсов</button>
         </div>
@@ -39,6 +40,9 @@
     </div>
 </div>
 <script src="{% static 'js/slider.js' %}"></script>
+
+
+
 <div class="smth">
     <div class="smth-text-first">
         <h1 class="underline">Какой-то заголовок</h1>
@@ -54,28 +58,28 @@
     </div>
 </div>
 
-<div id="cards">
-    {% for course in random_courses %}
-        <div class="card">
-            <div class="front">
-                <p>вот это курс!</p>
-                <h1>
-                    {{ course.name }}
-                </h1>
-                <p style="font-size: 1em;">
-                    {{ course.description }}
-                </p>
-            </div>
-            <div class="back">
-                <p>вот это курс!</p>
-                <h1>
-                    {{ course.price }} рублей
-                </h1>
-                <p>{{ course.duration_days }} продуктивных дней</p>
-            </div>
-        </div>
-    {% endfor %}
-</div>
+{#<div id="cards">#}
+{#    {% for course in random_courses %}#}
+{#        <div class="card">#}
+{#            <div class="front">#}
+{#                <p>вот это курс!</p>#}
+{#                <h1>#}
+{#                    {{ course.name }}#}
+{#                </h1>#}
+{#                <p style="font-size: 1em;">#}
+{#                    {{ course.description }}#}
+{#                </p>#}
+{#            </div>#}
+{#            <div class="back">#}
+{#                <p>вот это курс!</p>#}
+{#                <h1>#}
+{#                    {{ course.price }} рублей#}
+{#                </h1>#}
+{#                <p>{{ course.duration_days }} продуктивных дней</p>#}
+{#            </div>#}
+{#        </div>#}
+{#    {% endfor %}#}
+{#</div>#}
 
 <div class="smth">
     <div>
@@ -94,7 +98,6 @@
 
 <div id="news">
     <h1>Подписаться на новости </h1>
-    {#    <div class="sub">#}
     <form method="post" class="sub" action="{% url 'index' %}">
         {% csrf_token %}
         {{ form.as_p }}
@@ -123,7 +126,6 @@
         </script>
     {% endif %}
 </div>
-{#</div>#}
 
 
 <div id="feedback" class="slider">
@@ -147,7 +149,7 @@
 <script src="{% static 'js/feedback_slider.js' %}"></script>
 
 <footer id="footer">
-    <div class="container">
+    <div class="container_footer">
         <div class="footer-col">
             <h4><a class="underline" href="#">О нас</a></h4>
         </div>
