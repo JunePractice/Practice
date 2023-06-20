@@ -1,3 +1,4 @@
+/*БЛОКИ С ПРЯМОУГОЛЬНИКАМИ*/
 .info {
     overflow: hidden;
     width: 100%;
@@ -18,13 +19,13 @@
     margin-left: 5vw;
     margin-right: 5vw;
     color: #293241;
-    font-size: 2vw;
+    font-size: 1.5vw;
     margin-bottom: 5vw;
 }
 
 .info-text h1 {
     margin-left: 5vw;
-    font-size: 4vw;
+    font-size: 3vw;
     margin-bottom: 4vw;
     color: #293241;
     text-align: left;
@@ -35,8 +36,8 @@
 .rectangle {
     margin-left: 8vw;
     margin-right: 8vw;
-    height: 31vw;
-    width: 28vw;
+    height: 28vw;
+    width: 24vw;
     border-radius: 6vw;
 }
 
@@ -63,7 +64,7 @@
 @media (max-width: 600px) {
 
     .info-text h1 {
-        font-size: 3vw;
+        font-size: 2vw;
     }
 
     .info-text h2 {
@@ -176,7 +177,6 @@
 
 #news h1 {
     color: #293241;
-    /*padding-top: 2vw;*/
     padding-bottom: 9vw;
 }
 
