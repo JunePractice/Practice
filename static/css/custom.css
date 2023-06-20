@@ -159,6 +159,7 @@
 
 /*ПОДПИСКА НА НОВОСТИ*/
 #news {
+        overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: center;

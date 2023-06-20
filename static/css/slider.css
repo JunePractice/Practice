@@ -1,6 +1,5 @@
 /*ОБЩИЙ БЛОК ДЛЯ СЛАЙДЕРОВ*/
 .slider {
-    max-width: 1800px;
     margin: 0 auto;
     position: relative;
     width: 100%;
@@ -38,6 +37,7 @@
     text-align: center;
     height: 40vw;
     background-color: #98C1D9;
+    width: 100%;
 }
 
 .name {
