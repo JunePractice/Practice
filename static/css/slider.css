@@ -96,7 +96,6 @@
 
     .feedback-field {
         height: 100%;
-        margin-bottom: 5vw;
         flex-direction: column;
         display: flex;
         justify-content: center;
@@ -106,6 +105,7 @@
     .feedback-text {
         text-align: center;
         width: 60vw;
+        margin-bottom: -50px;
     }
 }
 
