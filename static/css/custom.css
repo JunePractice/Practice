@@ -160,13 +160,13 @@
 
 /*ПОДПИСКА НА НОВОСТИ*/
 #news {
-        overflow: hidden;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: #3D5A80;
-    height: 25vw;
+    height: 200px;
     width: 100%;
     text-align: center;
 }
@@ -177,7 +177,7 @@
 
 #news h1 {
     color: #293241;
-    padding-bottom: 9vw;
+    padding-bottom: 20px;
 }
 
 .sub {
