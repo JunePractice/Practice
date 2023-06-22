@@ -24,7 +24,7 @@ def index(request):
                     subject = 'подписка на рассылку'
                     message = 'вы успешно подписались!'
                     from_email = settings.DEFAULT_FROM_EMAIL
-                    send_mail(subject, message, from_email, [email], )
+                    send_mail(subject, message, from_email, [email], fail_silently=False,)
             except IntegrityError:
                 pass
         else:
