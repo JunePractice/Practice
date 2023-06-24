@@ -1,0 +1,148 @@
+html, body {
+    height: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.courses {
+    flex: 1 1 auto;
+    height: 100%;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.head-container{
+    position: relative;
+    text-align: center;
+}
+
+.search-block {
+    height: 250px;
+    background-color: #98C1D9;
+    filter: blur(20px);
+    -webkit-filter: blur(20px);
+}
+
+.search-name {
+    color: #293241;
+    font-size: 46px;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.search-form {
+    width: 100%;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0;
+}
+
+.search-form input {
+    width: 80%;
+    border: none;
+    height: 70px;
+    background-color: #F1FFFF;
+    font-size: 24px;
+    color: #293241;
+    padding-left: 10px;
+}
+
+.search-form input::placeholder {
+    color: #3D5A80;
+    opacity: .3;
+}
+
+.search-form input:focus {
+    outline: 0;
+}
+
+.search-button{
+    width: 10%;
+    border: none;
+    height: 70px;
+    background-color: #3D5A80;
+    color: #F1FFFF;
+    font-size: 24px;
+}
+
+.course-block{
+    width: 90%;
+    margin: 15px auto;
+}
+
+.side-filters {
+    width: 20%;
+    float: right;
+    color: #293241;
+    font-size: 24px;
+}
+
+.current-courses {
+    width: 70%;
+    float: left;
+    color: #293241;
+}
+
+.current-course {
+    background-color: #B3D9EF;
+    border-radius: 35px;
+    height: 235px;
+    margin-bottom: 45px;
+    display: flex;
+}
+
+.current-image img {
+    height: 235px;
+    border-radius: 35px;
+}
+
+.current-course-description {
+    margin: 20px 30px 15px 20px;
+    width: 100%;
+}
+
+.about-course {
+    margin-top: 30px;
+}
+
+.tag-length {
+    font-size: 24px;
+}
+
+.tag{
+    float: left;
+    color: #293241;
+}
+
+.length {
+    float: right;
+    color: #293241;
+}
+
+.course-name {
+    font-size: 36px;
+    color: #293241;
+}
+
+.course-description {
+    margin-top: 15px;
+    font-size: 24px;
+    color: #293241;
+}
+
+form label {
+    color: #293241;
+}

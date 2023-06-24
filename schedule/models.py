@@ -2,15 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db import models
 
-
-class Course(models.Model):
-    name = models.CharField(max_length=255)
-    description = models.TextField(null=True)
-    price = models.DecimalField(max_digits=7, decimal_places=0, null=True)
-    duration_days = models.PositiveIntegerField(null=True)
-
-    def __str__(self):
-        return self.name
+from courses.models import Course
 
 
 class Review(models.Model):

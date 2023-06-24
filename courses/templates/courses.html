@@ -1,0 +1,110 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Courses</title>
+    <link type="text/css" href="{% static 'css/custom.css' %}" rel="stylesheet"/>
+    <link type="text/css" href="{% static 'css/footer.css' %}" rel="stylesheet"/>
+    <link type="text/css" href="{% static 'css/header.css' %}" rel="stylesheet"/>
+    <link type="text/css" href="{% static 'css/slider.css' %}" rel="stylesheet"/>
+    <link type="text/css" href="{% static 'css/courses.css' %}" rel="stylesheet"/>
+    <link rel="stylesheet" href="../../../static/font-awesome-4.7.0/css/font-awesome.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+    </style>
+</head>
+<body>
+<div class="wrapper">
+
+    <header>
+        <div class="container_header">
+            <p>Logo</p>
+            <div class="container_outside">
+                <a href="#" class="block we">О нас</a>
+                <a href="/courses">
+                    <button class="btn block">Каталог курсов</button>
+                </a>
+            </div>
+            <button class="btn block enter">Войти</button>
+        </div>
+    </header>
+
+    <div class="courses">
+        <div class="head-container">
+            <div class="search-block"></div>
+            <h1 class="search-name">Все курсы</h1>
+            <form method="post" action="" class="search-form">
+                <input type="hidden" id="" name="" class="">
+                <input type="text" name="search-string" placeholder="Введите название курса">
+                <button type="submit" class="search-button">Поиск</button>
+            </form>
+        </div>
+
+        <div class="course-block">
+            <div class="side-filters">
+                Какой-то набор фильтров
+                <form>
+                    <input id="html" type="checkbox">
+                    <label for="html">Хочу изучать HTML</label>
+                </form>
+                <form>
+                    <input id="html" type="checkbox">
+                    <label for="html">Хочу изучать HTML</label>
+                </form>
+                <form>
+                    <input id="html" type="checkbox">
+                    <label for="html">Хочу изучать HTML</label>
+                </form>
+
+                <hr>
+            </div>
+            <div class="current-courses">
+                {% for c in course %}
+                    <a href="{% url 'courses' c.pk %}">
+                    <div class="current-course">
+                        <div class="current-image">
+                            <img src="{{ c.course_image.url }}" alt="">
+                        </div>
+                        <div class="current-course-description">
+                            <div class="tag-length">
+                                <p class="tag">{{ c.tag }}</p>
+                                <p class="length">{{ c.duration_days }} дней</p>
+                            </div>
+                            <div class="about-course">
+                                <h2 class="course-name">{{ c.name }}</h2>
+                                <p class="course-description">{{ c.description }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    </a>
+                {% endfor %}
+
+            </div>
+        </div>
+
+    </div>
+
+    <footer id="footer">
+        <div class="container_footer">
+            <div class="footer-col">
+                <h4><a class="underline" href="#">О нас</a></h4>
+            </div>
+            <div class="footer-col">
+                <h4 class="underline">Присоединяйся</h4>
+                <div class="social-links">
+                    <a class="fa fa-telegram" href="#" target="_blank"></a>
+                    <a class="fa fa-vk" href="#" target="_blank"></a>
+                    <a class="fa fa-github" href="#" target="_blank"></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4><a class="underline" href="#">Что-то еще</a></h4>
+            </div>
+        </div>
+    </footer>
+
+</div>
+</body>
+</html>
