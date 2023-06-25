@@ -15,9 +15,10 @@
             </div>
 
             <div class="video-block">
-                <video class="lesson-video" controls>
-                    <source src="{{ video_url }}">
-                </video>
+{#                <video class="lesson-video" controls>#}
+{#                    <source src="{{ video_url }}">#}
+{#                </video>#}
+                <iframe class=lesson-video width="{{ video.width }}" height="{{ video.height }}" src="{{ video.url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 <button>
                     <span>Пройти тест</span>
                 </button>
@@ -26,7 +27,7 @@
             <form id="test-form" action="#" method="get" class="test-block" style="display: none">
                 {% csrf_token %}
                 <div class="nav-bar">
-                    <button class="nav-back button-dark">
+                    <button type="button" class="nav-back button-dark">
                         <span>Назад</span>
                     </button>
                     <div class="question-links">
@@ -34,7 +35,7 @@
                             <div class="question-link qlink-unanswered">{{ question.number }}</div>
                         {% endfor %}
                     </div>
-                    <button class="nav-next button-dark">
+                    <button type="button" class="nav-next button-dark">
                         <span>Вперед</span>
                     </button>
                 </div>
