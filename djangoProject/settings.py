@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'account',
     'lessons',
     'feedback',
+    'notification',
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,53 @@
+fieldset {
+    all: initial;
+}
+
+legend {
+    text-align: center;
+}
+
+
+.btn {
+  height:50px;
+  width:100%;
+  border-radius:10px;
+  border:rgba(0,0,0,.3) 0 solid;
+  box-sizing:border-box;
+  padding:10px;
+  background:#3D5A80;
+  color:#FFF;
+  font-family: 'Open Sans', sans-serif;
+  font-weight:400;
+  font-size: 16pt;
+  transition:background .4s;
+  cursor:pointer;
+}
+/* Изменение фона кнопки при наведении */
+.btn:hover {
+  background:#98C1D9;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.notificationWrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.notification {
+    padding: 10px;
+    margin: 10px;
+    line-height: 1.8;
+    border-radius: 5px;
+    font-family: sans-serif;
+    font-weight: 400;
+    display: flex;
+    border: black 1px solid;
+    width: 25%;
+    justify-content: center;
+    background-color: #98C1D9;
+}

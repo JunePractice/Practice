@@ -5,6 +5,7 @@ from schedule.views import calendar, index
 from lessons.views import lesson
 from django.conf import settings
 from feedback.views import my_form
+from notification.views import notification
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -12,6 +13,7 @@ urlpatterns = [
     path('', index, name='index'),
     path('lessons/<int:lesson_id>/', lesson, name='lesson_detail'),
     path('feedback/', my_form, name='feedback'),
+    path('notification/', notification, name='notification'),
 ]
 
 if settings.DEBUG:

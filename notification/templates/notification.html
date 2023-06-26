@@ -1,0 +1,21 @@
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static "css/notification.css" %}">
+{% endblock css %}
+
+<div class="container">
+    <form method="POST">
+        <fieldset>
+            <legend>Страница с уведомлениями</legend>
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary">Показать все уведомления</button>
+        </fieldset>
+    </form>
+</div>
+
+<div class="notificationWrap">
+    {% for data in textData %}
+        <div class="notification">Новое уведомление: {{ data.text }}</div>
+    {% endfor %}
+</div>
