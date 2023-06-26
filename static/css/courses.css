@@ -41,6 +41,7 @@ html, body {
     transform: translate(-50%, -50%);
 }
 
+
 .search-form {
     width: 100%;
     position: absolute;
@@ -141,6 +142,21 @@ html, body {
     margin-top: 15px;
     font-size: 24px;
     color: #293241;
+}
+
+.current-course-button {
+    margin: 5px 10px 5px 10px;
+    background-color: #3D5A80;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    font-size: 24px;
+    border-radius: 15px;
+}
+
+.tags {
+    margin: 15px auto 0 auto;
 }
 
 form label {

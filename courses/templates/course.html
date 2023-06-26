@@ -1,0 +1,107 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Courses</title>
+    <link type="text/css" href="{% static 'css/custom.css' %}" rel="stylesheet"/>
+    <link type="text/css" href="{% static 'css/footer.css' %}" rel="stylesheet"/>
+    <link type="text/css" href="{% static 'css/header.css' %}" rel="stylesheet"/>
+    <link type="text/css" href="{% static 'css/slider.css' %}" rel="stylesheet"/>
+    <link type="text/css" href="{% static 'css/course.css' %}" rel="stylesheet"/>
+    <link type="text/css" href="{% static 'css/courses.css' %}" rel="stylesheet"/>
+    <link rel="stylesheet" href="../../../static/font-awesome-4.7.0/css/font-awesome.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+    </style>
+</head>
+<body>
+<div class="wrapper">
+
+    <header>
+        <div class="container_header">
+            <p>Logo</p>
+            <div class="container_outside">
+                <a href="/" class="block we">О нас</a>
+                <a href="/courses">
+                    <button class="btn block">Каталог курсов</button>
+                </a>
+            </div>
+            <button class="btn block enter">Войти</button>
+        </div>
+    </header>
+
+    <div class="courses">
+        <div class="head-container">
+            <div class="search-block"></div>
+            <div class="current-image">
+                <img src={{ course.course_image.url }}>
+            </div>
+            <h2 class="course-page-name">{{ course.name }}</h2>
+            <p class="course-page-description">{{ course.description }}</p>
+        </div>
+
+
+        <div class="course">
+            <div class="course-title">
+                <button class="current-course-button">
+                    О курсе - чему вы научитесь?
+                </button>
+            </div>
+            <p class="full-description-course" style="width: 90%">{{ course.full_description }}</p>
+            <div class="video-player">
+                <iframe width="70%" height="500px" src={{ course.course_video }}></iframe>
+            </div>
+            <div class="confirm-course">
+                <h2 class="study-invite">Пройти обучение</h2>
+                <p class="study-add">Ниже введите Ваш номер телефона для обратной связи:</p>
+                <form method="post" class="submit-course-form">
+                    {% csrf_token %}
+                    <input type="tel" name="phone" id="phone" placeholder="+X-XXX-XXX-X-X" class="phone-input">
+                    <button type="submit" class="submit-course-button">Записаться на курс</button>
+                </form>
+
+            </div>
+            <h2 class="plan-header">План уроков:</h2>
+            <div class="skill-list">
+
+                <ul>
+                    {% for l in lessons %}
+                        <br>
+                        <a href="#" class="lesson-link">
+                            <li class="current-lesson">
+                                <div class="lesson-name">{{ l.name }}</div>
+                                <div class="lessons-length">&#9203; {{ l.lesson_length }}</div>
+                            </li>
+                        </a>
+                    {% endfor %}
+                </ul>
+
+            </div>
+        </div>
+
+    </div>
+
+    <footer id="footer">
+        <div class="container_footer">
+            <div class="footer-col">
+                <h4><a class="underline" href="#">О нас</a></h4>
+            </div>
+            <div class="footer-col">
+                <h4 class="underline">Присоединяйся</h4>
+                <div class="social-links">
+                    <a class="fa fa-telegram" href="#" target="_blank"></a>
+                    <a class="fa fa-vk" href="#" target="_blank"></a>
+                    <a class="fa fa-github" href="#" target="_blank"></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4><a class="underline" href="#">Что-то еще</a></h4>
+            </div>
+        </div>
+    </footer>
+
+</div>
+</body>
+</html>

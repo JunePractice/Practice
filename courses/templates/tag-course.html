@@ -34,22 +34,12 @@
     <div class="courses">
         <div class="head-container">
             <div class="search-block"></div>
-            <h1 class="search-name">Все курсы</h1>
+            <h1 class="search-name">Курсы по тегу</h1>
             <form method="post" action="{% url 'courses' %}" class="search-form">
                 {% csrf_token %}
                 <input type="text" name="search-string" id="search-string" placeholder="Введите название курса">
                 <button type="submit" class="search-button" >Поиск</button>
             </form>
-        </div>
-
-        <div class="tags">
-            {% for t in tags %}
-                <a href="{% url 'courses' t.pk %}">
-                    <button class="current-course-button">
-                        {{ t.name }}
-                    </button>
-                </a>
-            {% endfor %}
         </div>
 
         <div class="course-block">
@@ -71,7 +61,7 @@
                 <hr>
             </div>
             <div class="current-courses">
-                {% for c in course %}
+                {% for c in tagCourses %}
                     <a href="{% url 'current-course' c.pk %}">
                         <div class="current-course">
                             <div class="current-image">
