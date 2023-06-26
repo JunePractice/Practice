@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls.static import static
 from schedule.views import calendar, index
-from lessons.views import lesson
+from lessons.views import lesson, lesson_submit_form
 from django.conf import settings
 from feedback.views import my_form
 from notification.views import notification
@@ -14,6 +14,7 @@ urlpatterns = [
     path('lessons/<int:lesson_id>/', lesson, name='lesson_detail'),
     path('feedback/', my_form, name='feedback'),
     path('notification/', notification, name='notification'),
+    path('lessons/submit-form', lesson_submit_form, name="lesson_form"),
 ]
 
 if settings.DEBUG:

@@ -1,72 +1,41 @@
 from django.shortcuts import render
-
+from lessons.models import Lesson, TestResult, TestAnswer
+from django.http import HttpResponseRedirect
 # Create your views here.
 
 def lesson(request, lesson_id):
-    # сейчас есть только лекции 0 и 1, ( /lessons/0 и /lessons/1 )
+    this_lesson = Lesson.objects.get(id=lesson_id)
 
-    questionss = \
-    [
-        [
-            {
-                'number': 1,
-                'body': 'Мы считали дырки в сыре: два плюс три равно ...?',
-                'answer_type': 'radio',
-                'options': ['четыре', 'пять', 'шесть'],
-            },
-            {
-                'number': 2,
-                'body': 'Сколько будет 9 + 10?',
-                'answer_type': 'checkbox',
-                'options': ['12', '13', '19', '4'],
-            },
-            {
-                'number': 3,
-                'body': 'Сколько будет 1 + 10?',
-                'answer_type': 'text',
-            },
-            {
-                'number': 4,
-                'body': 'Сколько будет 9 + 2?',
-                'answer_type': 'text',
-            },
-        ],
-
-        [
-            {
-                'number': 1,
-                'body': 'Как жизнь?',
-                'answer_type': 'text',
-            },
-        ]
-    ]
-
-    video_urls = [
-        "https://www.youtube.com/embed/GmESG58YRnY",
-        "https://www.youtube.com/embed/2GgiZZhO-PA",
-    ]
-
-    videos = [
-        {
-            'url': "https://www.youtube.com/embed/GmESG58YRnY",
-            'width': '560px',
-            'height': '315px',
-        },
-        {
-            'url': "https://www.youtube.com/embed/2GgiZZhO-PA",
-            'width': '560px',
-            'height': '315px',
-        },
-
-    ]
+    questions = [{
+        'id': question.id,
+        'number': i + 1,
+        'body': question.body,
+        'answer_type': question.answer_type,
+        'answer_options': question.answer_options.split(';')
+    } for i, question in enumerate(this_lesson.questions.all())]
 
     context = {
-        'video': videos[lesson_id],
-        'video_url': video_urls[lesson_id],
+        'video': {
+            'url': this_lesson.video_url,
+            'width': '560px',
+            'height': '315px',
+        },
         'lesson_id': lesson_id,
-        'lesson_title': f'Урок {lesson_id}',
-        'questions': questionss[lesson_id],
+        'lesson_title': this_lesson.name,
+        'questions': questions,
     }
 
-
     return render(request, 'index.html', context)
+
+
+def lesson_submit_form(request):
+    if request.method == 'POST':
+        lesson_id = request.POST.get('lesson_id')
+        this_lesson = Lesson.objects.get(id=lesson_id)
+        questions = this_lesson.questions.all()
+        tr = TestResult(username=request.POST.get('username'), test=this_lesson)
+        tr.save()
+        for question in questions:
+            answer = ';'.join(request.POST.getlist(f'question{question.id}', default=[]))
+            TestAnswer(result=tr, test_question=question, answer=answer).save()
+    return HttpResponseRedirect('/')
