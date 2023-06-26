@@ -1,9 +1,10 @@
+{% extends "template.html" %}
 {% load static %}
 
 {% block css %}
     <link rel="stylesheet" href="{% static "css/notification.css" %}">
 {% endblock css %}
-
+{% block page %}
 <div class="container">
     <form method="POST">
         <fieldset>
@@ -19,3 +20,4 @@
         <div class="notification">Новое уведомление: {{ data.text }}</div>
     {% endfor %}
 </div>
+{% endblock page %}
