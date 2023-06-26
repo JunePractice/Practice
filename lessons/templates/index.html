@@ -24,8 +24,10 @@
                 </button>
             </div>
 
-            <form id="test-form" action="#" method="get" class="test-block" style="display: none">
+            <form id="test-form" action="/lessons/submit-form" method="post" class="test-block" onsubmit="getUsername()" style="display: none">
                 {% csrf_token %}
+                <input id='username_input' type="hidden" name="username">
+                <input type="hidden" name="lesson_id" value="{{ lesson_id }}">
                 <div class="nav-bar">
                     <button type="button" class="nav-back button-dark">
                         <span>Назад</span>
@@ -51,19 +53,19 @@
                                 <div class="answer">
                                     {% if question.answer_type == 'text'%}
                                         <span>Ответ:</span>
-                                        <input type="text" onchange="updateQLinkColor({{ question.number }})">
+                                        <input type="text" name="question{{ question.id }}" onchange="updateQLinkColor({{ question.number }})">
                                     {% elif question.answer_type == 'radio' %}
-                                        {% for option in question.options %}
+                                        {% for option in question.answer_options %}
                                             <label>
-                                                <input type="radio" name="question{{ question.number }}" value="{{ option }}" onchange="updateQLinkColor({{ question.number }})">
+                                                <input type="radio" name="question{{ question.id }}" value="{{ option }}" onchange="updateQLinkColor({{ question.number }})">
                                                 {{ option }}
                                             </label>
                                             <br>
                                         {% endfor %}
                                     {% elif question.answer_type == 'checkbox' %}
-                                        {% for option in question.options %}
+                                        {% for option in question.answer_options %}
                                             <label>
-                                                <input type="checkbox" name="question{{ question.number }}" value="{{ option }}" onchange="updateQLinkColor({{ question.number }})">
+                                                <input type="checkbox" name="question{{ question.id }}" value="{{ option }}" onchange="updateQLinkColor({{ question.number }})">
                                                 {{ option }}
                                             </label>
                                             <br>

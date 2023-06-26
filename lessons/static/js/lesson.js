@@ -56,7 +56,12 @@ function updateQLinkColor(qNumber) {
     }
 }
 
-
+function getUsername() {
+    let input = document.getElementById('username_input');
+    if (input.value === "") {
+        input.value = prompt("Как Вас зовут?");
+    }
+}
 
 document.querySelector(".nav-bar > .question-links").addEventListener("click", event => {
     if (event.target.classList.contains('question-link')) {
