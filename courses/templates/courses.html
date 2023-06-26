@@ -38,7 +38,7 @@
             <form method="post" action="{% url 'courses' %}" class="search-form">
                 {% csrf_token %}
                 <input type="text" name="search-string" id="search-string" placeholder="Введите название курса">
-                <button type="submit" class="search-button" >Поиск</button>
+                <button type="submit" class="search-button">Поиск</button>
             </form>
         </div>
 
@@ -54,21 +54,33 @@
 
         <div class="course-block">
             <div class="side-filters">
-                Какой-то набор фильтров
-                <form>
-                    <input id="html" type="checkbox">
-                    <label for="html">Хочу изучать HTML</label>
-                </form>
-                <form>
-                    <input id="html" type="checkbox">
-                    <label for="html">Хочу изучать HTML</label>
-                </form>
-                <form>
-                    <input id="html" type="checkbox">
-                    <label for="html">Хочу изучать HTML</label>
-                </form>
+                <h2 style="color: #293241; font-size: 26px;">Длительность</h2>
+                <form class="form-check" method="POST">
+                    {% csrf_token %}
 
-                <hr>
+                    <div class="check-box-filter"><input type="checkbox" value="OneWeek" name="check-filter">
+                        <label for="oneweek">До одной недели</label></div>
+
+                    <div class="check-box-filter"><input class="check-box-filter" type="checkbox" value="ThreeWeek"
+                                                         name="check-filter">
+                        <label for="threeweek">До трех недель</label></div>
+
+                    <div class="check-box-filter"><input class="check-box-filter" type="checkbox" value="MoreThreeWeek"
+                                                         name="check-filter">
+                        <label for="morethreeweek">Больше трех недель</label></div>
+
+                    <hr>
+                    <h2 style="color: #293241; font-size: 26px;">Стоимость</h2>
+
+                    <div class="check-box-filter"><input class="check-box-filter" type="checkbox" value="Free"
+                                                         name="check-filter">
+                        <label for="free">Бесплатные</label></div>
+
+                    <button type="submit" class="search-button" style="width: 50%; height: 40px; margin-top: 10px">
+                        Поиск
+                    </button>
+
+                </form>
             </div>
             <div class="current-courses">
                 {% for c in course %}

@@ -58,7 +58,9 @@
                 <p class="study-add">Ниже введите Ваш номер телефона для обратной связи:</p>
                 <form method="post" class="submit-course-form">
                     {% csrf_token %}
-                    <input type="tel" name="phone" id="phone" placeholder="+X-XXX-XXX-X-X" class="phone-input">
+                    <input type="tel" name="phone" id="phone" placeholder="+X-XXX-XXX-X-X" class="phone-input"
+                           pattern="+7-[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                           required>
                     <button type="submit" class="submit-course-button">Записаться на курс</button>
                 </form>
 

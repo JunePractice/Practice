@@ -32,6 +32,11 @@ html, body {
     -webkit-filter: blur(20px);
 }
 
+.side-filters h2 {
+    color: #293241;
+    font-size: 32px;
+}
+
 .search-name {
     color: #293241;
     font-size: 46px;
@@ -159,6 +164,6 @@ html, body {
     margin: 15px auto 0 auto;
 }
 
-form label {
+.form-check label {
     color: #293241;
 }

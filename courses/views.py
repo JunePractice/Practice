@@ -11,19 +11,37 @@ def courses(request):
 
     if request.method == 'POST':
         string = request.POST.get('search-string', False)
-        if not string:
+        checkboxes = request.POST.getlist('check-filter', False)
+        print(checkboxes)
+        if checkboxes:
+            if checkboxes == ['OneWeek']:
+                course = Course.objects.filter(duration_days__lt=7)
+            elif checkboxes == ['ThreeWeek'] or checkboxes == ['OneWeek', 'ThreeWeek']:
+                course = Course.objects.filter(duration_days__lt=21)
+            elif checkboxes == ['MoreThreeWeek']:
+                course = Course.objects.filter(duration_days__gt=21)
+            elif checkboxes == ['Free']:
+                course = Course.objects.filter(price=0)
+            elif checkboxes == ['Free', 'OneWeek']:
+                course = Course.objects.filter(duration_days__lt=7, price=0)
+            elif checkboxes == ['Free', 'ThreeWeek'] or checkboxes == ['Free', 'OneWeek', 'ThreeWeek']:
+                course = Course.objects.filter(duration_days__lt=21, price=0)
+            elif checkboxes == ['Free', 'MoreThreeWeek']:
+                course = Course.objects.filter(duration_days__gt=21, price=0)
+            else:
+                course = Course.objects.all()
+
+        elif not string:
             context = {
                 'course': course,
                 'tags': tags
             }
             return render(request, 'courses.html', context)
+
         else:
-            all_course = Course.objects.all()
             course = Course.objects.filter(name=string)
-            tags = Tag.objects.all()
     else:
         course = Course.objects.all()
-        tags = Tag.objects.all()
 
     context = {
         'course': course,
