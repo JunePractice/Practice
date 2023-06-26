@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'schedule',
     'account',
     'lessons',
+    'feedback',
 ]
 
 MIDDLEWARE = [
