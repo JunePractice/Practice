@@ -11,6 +11,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('schedule/', calendar, name='calendar'),
     path('', index, name='index'),
+    path('profile/', user_views.profile , name='profile'),
     path("login/", views.LoginView.as_view(next_page=''), name="login"),
     path("logout/", views.LogoutView.as_view(next_page=''), name="logout"),
     path('register/', user_views.register, name='register'),

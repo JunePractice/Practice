@@ -16,3 +16,31 @@ def register(request):
     else:
         form = UserRegisterForm()
     return render(request, 'registration/register.html', {'form': form})
+
+
+@login_required
+def profile(request):
+    if request.method == 'POST':
+        u_form = UserUpdateForm(request.POST,
+                                request.FILES,
+                                instance=request.user)
+        p_form = AccountUpdateForm(request.POST,
+                                   request.FILES,
+                                   instance=request.user.account)
+        if u_form.is_valid() and p_form.is_valid():
+            u_form.save()
+            p_form.save()
+            messages.success(request, f'Ваш профиль успешно обновлен.')
+            return redirect('profile')
+
+    else:
+        u_form = UserUpdateForm(instance=request.user)
+        p_form = AccountUpdateForm(instance=request.user.account)
+
+    context = {
+        'u_form': u_form,
+        'p_form': p_form
+    }
+
+    return render(request, 'account/profile.html', context)
+

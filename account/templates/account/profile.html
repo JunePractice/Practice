@@ -1,0 +1,69 @@
+{% extends  'base.html' %}
+{% load static %}
+
+{% block title %}
+    Profile
+{% endblock %}
+
+{% block style %}
+    <link type="text/css" href="{% static 'css/profile.css' %}" rel="stylesheet"/>
+{% endblock %}
+
+{% block main %}
+<main>
+    <div class="profile">
+        <div class="icon_img">
+            <img src="{{ user.account.photo.url }} ">
+        </div>
+        <h1>Личная информация</h1>
+        <div class=form_profile">
+        <form method="POST" action="{% url 'profile' %}">
+            {% csrf_token %}
+            <table>
+            <tr>
+                <td>
+                <div class="form-block">
+                    Фамилия
+                    {{ u_form.last_name }}
+                </div>
+                </td>
+                <td>
+                <div class="form-block">
+                    Имя
+                    {{ u_form.first_name }}
+                </div>
+                </td>
+                <td>
+                <div class="form-block">
+                    Отчество
+                    {{ p_form.patronymic }}
+                </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                <div class="form-block">
+                    Дата рождения
+                    {{ p_form.date_of_birth }}
+                </div>
+                </td>
+                <td>
+                <div class="form-block">
+                    Номер телефона
+                    {{ p_form.phone_number }}
+                </div>
+                </td>
+                <td>
+                <div class="form-block">
+                    Пол
+                    {{ p_form.gender }}
+                </div>
+                </td>
+            </tr>
+            </table>
+            <input type="submit" value="Сохранить" class="button_save">
+        </form>
+        </div>
+    </div>
+</main>
+{% endblock %}
