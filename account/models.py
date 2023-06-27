@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from schedule.models import Course
 from PIL import Image
 
 
@@ -18,6 +19,7 @@ class Account(models.Model):
     patronymic = models.CharField(max_length=30, null=True, blank=True)
     phone_number = models.CharField(max_length=12, null=True, blank=True)
     gender = models.CharField(max_length=255, choices=GENDER, default=MAN)
+    courses = models.ManyToManyField(Course)
 
     def __str__(self):
         return 'Profile for user {}'.format(self.user.username)

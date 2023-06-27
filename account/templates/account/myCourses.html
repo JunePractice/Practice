@@ -1,0 +1,34 @@
+{% extends  'base.html' %}
+{% load static %}
+
+{% block title %}
+    Profile
+{% endblock %}
+
+{% block style %}
+    <link type="text/css" href="{% static 'css/myCourses.css' %}" rel="stylesheet"/>
+{% endblock %}
+
+{% block main %}
+<main>
+<div class="myCourses">
+    <h1>Мои курсы</h1>
+    {% for course in courses %}
+        <a href="#">
+        <div class="course">
+            <img src="{% static 'img/img.png' %}">
+            <div class="course_info">
+                <div class="course_name_and_time">
+                    <p>{{ course.name }}</p>
+                    <p>{{ course.duration_days }} дней</p>
+                </div>
+                <div>
+                    <p>{{ course.description }}</p>
+                </div>
+            </div>
+        </div>
+        </a>
+    {% endfor %}
+</div>
+</main>
+{% endblock %}

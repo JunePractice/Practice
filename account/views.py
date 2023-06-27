@@ -44,3 +44,10 @@ def profile(request):
 
     return render(request, 'account/profile.html', context)
 
+
+@login_required
+def get_my_courses(request):
+    context = {
+        'courses': Account.objects.get(user_id=request.user.id).courses.all()
+    }
+    return render(request, 'account/myCourses.html', context)
