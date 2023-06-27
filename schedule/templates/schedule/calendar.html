@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -7,21 +9,21 @@
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
     </style>
     <link href="../../../static/css/calendar.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../../static/css/header.css">
-    <link rel="stylesheet" href="../../../static/css/footer.css">
+        <link type="text/css" href="{% static 'css/footer.css' %}" rel="stylesheet"/>
+    <link type="text/css" href="{% static 'css/header.css' %}" rel="stylesheet"/>
     <script async src="../../../static/js/calendar.js"></script>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <img class="logo block" src="../../../static/img/new_logo.png">
-            <div class="container">
-                <a href="#" class="block we">О нас</a>
-                <button class="btn block">Каталог курсов</button>
-            </div>
-            <button class="btn block enter">Войти</button>
+  <header>
+    <div class="container_header">
+        <p>Logo</p>
+        <div class="container_outside">
+            <a href="#" class="block we">О нас</a>
+            <button class="btn block">Каталог курсов</button>
         </div>
-    </header>
+        <button class="btn block enter">Войти</button>
+    </div>
+</header>
     <div id="cal-wrap">
         <h1>Расписание</h1>
         <!-- ВЫБОР ПЕРИОДА -->
@@ -42,22 +44,22 @@
         </form>
     </div>
     <footer id="footer">
-        <div class="container">
-            <div class="footer-col">
-                <h4>О нас</h4>
-            </div>
-            <div class="footer-col">
-                <h4>Присоединяйся</h4>
-                <div class="social-links">
-                    <a href="#">ТГ</a>
-                    <a href="#">ВК</a>
-                    <a href="#">Git</a>
-                </div>
-            </div>
-            <div class="footer-col">
-                <h4>Что-то еще</h4>
+    <div class="container_footer">
+        <div class="footer-col">
+            <h4><a class="underline" href="#">О нас</a></h4>
+        </div>
+        <div class="footer-col">
+            <h4 class="underline">Присоединяйся</h4>
+            <div class="social-links">
+                <a class="fa fa-telegram" href="#" target="_blank"></a>
+                <a class="fa fa-vk" href="#" target="_blank"></a>
+                <a class="fa fa-github" href="#" target="_blank"></a>
             </div>
         </div>
-    </footer>
+        <div class="footer-col">
+            <h4><a class="underline" href="#">Что-то еще</a></h4>
+        </div>
+    </div>
+</footer>
 </body>
 </html>

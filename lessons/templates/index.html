@@ -1,0 +1,89 @@
+{% extends "template.html" %}
+{% load static %}
+
+
+{% block css %}
+    <link rel="stylesheet" href="{% static "css/lesson.css" %}">
+{% endblock css %}
+
+
+{% block page %}
+    <div class="wrapper">
+        <div class="lesson-block" style="">
+            <div class="lesson-title">
+                <p>{{ lesson_title }}</p>
+            </div>
+
+            <div class="video-block">
+{#                <video class="lesson-video" controls>#}
+{#                    <source src="{{ video_url }}">#}
+{#                </video>#}
+                <iframe class=lesson-video width="{{ video.width }}" height="{{ video.height }}" src="{{ video.url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <button>
+                    <span>Пройти тест</span>
+                </button>
+            </div>
+
+            <form id="test-form" action="/lessons/submit-form" method="post" class="test-block" onsubmit="getUsername()" style="display: none">
+                {% csrf_token %}
+                <input id='username_input' type="hidden" name="username">
+                <input type="hidden" name="lesson_id" value="{{ lesson_id }}">
+                <div class="nav-bar">
+                    <button type="button" class="nav-back button-dark">
+                        <span>Назад</span>
+                    </button>
+                    <div class="question-links">
+                        {% for question in questions %}
+                            <div class="question-link qlink-unanswered">{{ question.number }}</div>
+                        {% endfor %}
+                    </div>
+                    <button type="button" class="nav-next button-dark">
+                        <span>Вперед</span>
+                    </button>
+                </div>
+
+                <div class="question-body">
+                    {% for question in questions %}
+                        <div class="outer" style="{% if question.number != 1 %}{{ "display: none;" }}{% endif %}">
+                            <div class="number">{{ question.number }}</div>
+                            <div class="inner">
+                                <p class="description">
+                                    {{ question.body }}
+                                </p>
+                                <div class="answer">
+                                    {% if question.answer_type == 'text'%}
+                                        <span>Ответ:</span>
+                                        <input type="text" name="question{{ question.id }}" onchange="updateQLinkColor({{ question.number }})">
+                                    {% elif question.answer_type == 'radio' %}
+                                        {% for option in question.answer_options %}
+                                            <label>
+                                                <input type="radio" name="question{{ question.id }}" value="{{ option }}" onchange="updateQLinkColor({{ question.number }})">
+                                                {{ option }}
+                                            </label>
+                                            <br>
+                                        {% endfor %}
+                                    {% elif question.answer_type == 'checkbox' %}
+                                        {% for option in question.answer_options %}
+                                            <label>
+                                                <input type="checkbox" name="question{{ question.id }}" value="{{ option }}" onchange="updateQLinkColor({{ question.number }})">
+                                                {{ option }}
+                                            </label>
+                                            <br>
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <div class="submit-button">
+                    <button type="submit" class="button-dark">Отправить результаты</button>
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+    <script src="{% static 'js/lesson.js' %}"></script>
+{% endblock page %}

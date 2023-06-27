@@ -1,0 +1,157 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: #F1FFFF;
+}
+
+footer {
+    margin-top: auto;
+}
+
+.lesson-title {
+    padding: 20px;
+}
+.lesson-title p {
+    color: black;
+    font-size: 32px;
+}
+
+
+
+/* video */
+.video-block {
+    margin: 0px auto;
+    width: min-content;
+    display: flex;
+    flex-direction: column;
+}
+
+.video-block .lesson-video {
+    height: 70vh;
+    /*width: auto;*/
+}
+
+.video-block > button {
+    font-size: 24px;
+    background-color: #3D5A80;
+    border-radius: 5px;
+    width: 400px;
+    margin: 20px 0;
+    align-self: end;
+    padding: 20px;
+}
+/* video */
+
+/* test */
+.test-block {
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.button-dark {
+    border-radius: 5px;
+    background-color: #3D5A80;
+    padding: 5px 10px;
+    height: 30px;
+}
+
+.test-block > * {
+    padding: 10px;
+}
+
+/*nav*/
+.test-block .nav-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-grow: 0;
+    height: 80px;
+}
+
+.test-block .nav-bar .question-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    background-color: #98C1D9;
+    margin: 0 10px;
+    height: 30px;
+}
+
+.nav-bar .question-link {
+    color: black;
+    padding: 0 5px;
+    margin: 0 10px;
+    border-radius: 5px;
+
+}
+/*nav*/
+
+.test-block .question-body {
+    flex-grow: 1;
+}
+
+.test-block .question-body * {
+    color: black;
+}
+
+.test-block .submit-button {
+    height: 80px;
+    flex-grow: 0;
+}
+
+.test-block .outer {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+}
+
+.test-block .outer .number {
+    margin-right: 20px;
+    border-radius: 10px ;
+    flex: 50px 0 0;
+    height: 50px;
+    background-color: #98C1D9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.qlink-unanswered {
+    background-color: #F1FFFF;
+}
+
+.qlink-answered {
+    background-color: #9EFC96;
+}
+
+.outer .inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+}
+
+.inner .answer {
+    margin-top: 10px;
+}
+
+.answer > span {
+    font-weight: bold;
+}
+
+.answer > input[type="text"] {
+    padding: 5px;
+    height: 20px;
+    width: 200px;
+}
+
+.submit-button {
+    margin-left: auto;
+}
+
+/* test */
+

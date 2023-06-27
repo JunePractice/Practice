@@ -3,102 +3,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
     <title>Title</title>
-    <link type="text/css" href="{% static 'css/custom.css' %}" rel="stylesheet"/>
-    <link type="text/css" href="{% static 'css/footer.css' %}" rel="stylesheet"/>
-    <link type="text/css" href="{% static 'css/header.css' %}" rel="stylesheet"/>
-    <link rel="stylesheet" href="../../../static/font-awesome-4.7.0/css/font-awesome.css">
+    <link type="text/css" href="{% static "css/footer.css" %}" rel="stylesheet"/>
+    <link type="text/css" href="{% static "css/header.css" %}" rel="stylesheet"/>
+    <link rel="stylesheet" href="{% static "font-awesome-4.7.0/css/font-awesome.css" %}">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
-    header .nav a {
-  text-decoration: none;
-  outline: none;
-  display: block;
-  transition: .3s ease-in-out;
-}
-.nav {
-  display: table;
-  margin: 0;
-}
-.nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.nav img {
-  width: 60px;
-}
-.topmenu:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-.topmenu > li {
-  width: 100%;
-  float: left;
-  position: relative;
-  font-family: 'Open Sans', sans-serif;
-}
-.topmenu > li > a {
-  text-transform: uppercase;
-  font-size: 14px;
-  font-weight: bold;
-  padding: 15px 30px;
-}
-.topmenu li a:hover { color: #D5B45B; }
-.submenu {
-  background: #98C1D9;
-  position: absolute;
-    right: 10px;
-  top: 140px;
-  z-index: 5;
-  width: 140px;
-  opacity: 0;
-  transform: scaleY(0);
-  transform-origin: 0 0;
-  transition: .5s ease-in-out;
-}
-.submenu a {
-  color: white;
-  text-align: center;
-  padding: 12px 15px;
-  font-size: 15px;
-  border-bottom: 1px solid rgba(255,255,255,.1);
-}
-.submenu li:last-child a { border-bottom: none; }
-.topmenu > li:hover .submenu {
-  opacity: 1;
-  transform: scaleY(1);
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-.dropdown-content {
-    top: 100px;
-    color: #293241;
-    display: none;
-    position: absolute;
-    background-color: lightblue;
-    min-width: 160px;
-    box-shadow: 0 0 8px -1px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-.dropdown-content td {
-    color: #293241;
-}
-
-.dropdown:hover .enter, .enter:focus{
-    border: solid 2px #EE6C4D;
-}
-
-.show {
-    display: block;
-}
-.dropdown-content a:hover {background-color: #ddd}
     </style>
+    {% block css %}{% endblock %}
+
 </head>
 <body>
 
@@ -109,59 +23,13 @@
             <a href="#" class="block we">О нас</a>
             <button class="btn block">Каталог курсов</button>
         </div>
-        {% if user.is_authenticated %}
-            <div class="nav">
-                <ul class="topmenu">
-                    <li><a href="" ><img src="{% static 'img/../media/account/default_icon.png' %}" alt=""></a>
-                    <ul class="submenu">
-                      <li><a href="{% url 'myCourse' %}">Мои курсы</a></li>
-                      <li><a href="{% url 'profile' %}">Настройки</a></li>
-                      <li><a href="{% url 'logout' %}">Выйти</a></li>
-                    </ul>
-                    </li>
-                </ul>
-            </div>
-        {% else %}
-            <div class="dropdown">
-                <button onclick="dropdown()" class="btn block enter">Войти</button>
-                <div class="dropdown-content" id="myDropdown">
-                    <form method="post" action="{% url 'login' %}" >
-                    {% csrf_token %}
-                    <table>
-                    <tr>
-                        <td>Логин</td>
-                        <td>{{ form.username }}</td>
-                    </tr>
-                    <tr>
-                        <td>Пароль</td>
-                        <td>{{ form.password }}</td>
-                    </tr>
-                    </table>
-
-                    <input type="submit" value="login">
-                    <input type="hidden" name="next" value="{{ next }}">
-                    </form>
-                </div>
-            </div>
-        {% endif %}
+        <button class="btn block enter">Войти</button>
     </div>
-
 </header>
-<main>
-    <p>f</p>
-    <p>f</p>
-    <p>f</p>
-    <p>f</p>
-    <p>f</p>
-    <p>f</p>
-    <p>f</p>
-    <p>f</p>
-    <p>f</p>
-    <p>f</p>
-    <p>f</p>
-    <p>f</p>
-    <p>f</p>
-</main>
+
+
+{% block page %}{% endblock %}
+
 <footer id="footer">
     <div class="container_footer">
         <div class="footer-col">
@@ -180,11 +48,5 @@
         </div>
     </div>
 </footer>
-<script>
-function dropdown() {
-    document.getElementById("myDropdown").classList.toggle("show");
-}
-</script>
 </body>
-
 </html>
