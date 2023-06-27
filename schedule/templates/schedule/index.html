@@ -1,33 +1,13 @@
+{% extends 'base.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link type="text/css" href="{% static 'css/custom.css' %}" rel="stylesheet"/>
-    <link type="text/css" href="{% static 'css/footer.css' %}" rel="stylesheet"/>
-    <link type="text/css" href="{% static 'css/header.css' %}" rel="stylesheet"/>
+{% block title %}
+    Title
+{% endblock %}
+{% block style %}
     <link type="text/css" href="{% static 'css/slider.css' %}" rel="stylesheet"/>
-    <link rel="stylesheet" href="../../../static/font-awesome-4.7.0/css/font-awesome.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
-    </style>
-
-</head>
-<body>
-
-<header>
-    <div class="container_header">
-        <p>Logo</p>
-        <div class="container_outside">
-            <a href="#" class="block we">О нас</a>
-            <button class="btn block">Каталог курсов</button>
-        </div>
-        <button class="btn block enter">Войти</button>
-    </div>
-</header>
-
+{% endblock %}
+{% block main %}
 <div class="slider" id="advertisement">
     <img class="advertisementImg" src="{% static 'img/img1.svg' %}" alt="alt">
     <img class="advertisementImg" src="{% static 'img/img2.svg' %}" alt="alt">
@@ -144,24 +124,4 @@
     </div>
 </div>
 <script src="{% static 'js/feedback_slider.js' %}"></script>
-
-<footer id="footer">
-    <div class="container_footer">
-        <div class="footer-col">
-            <h4><a class="underline" href="#">О нас</a></h4>
-        </div>
-        <div class="footer-col">
-            <h4 class="underline">Присоединяйся</h4>
-            <div class="social-links">
-                <a class="fa fa-telegram" href="#" target="_blank"></a>
-                <a class="fa fa-vk" href="#" target="_blank"></a>
-                <a class="fa fa-github" href="#" target="_blank"></a>
-            </div>
-        </div>
-        <div class="footer-col">
-            <h4><a class="underline" href="#">Что-то еще</a></h4>
-        </div>
-    </div>
-</footer>
-</body>
-</html>
+{% endblock %}
