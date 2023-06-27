@@ -8,3 +8,6 @@ class Account(models.Model):
 
     def __str__(self):
         return 'Profile for user {}'.format(self.user.username)
+
+    def save(self):
+        super().save()

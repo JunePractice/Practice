@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock title %}</title>
+    <link type="text/css" href="{% static 'css/custom.css' %}" rel="stylesheet"/>
+    <link type="text/css" href="{% static 'css/footer.css' %}" rel="stylesheet"/>
+    <link type="text/css" href="{% static 'css/header.css' %}" rel="stylesheet"/>
+    <link rel="stylesheet" href="../../../static/font-awesome-4.7.0/css/font-awesome.css">
+    {% block style %}{% endblock style %}
+</head>
+<body>
+<header>
+    <div class="container_header">
+        <p>Logo</p>
+        <div class="container_outside">
+            <a href="#" class="block we">О нас</a>
+            <button class="btn block">Каталог курсов</button>
+        </div>
+        {% if user.is_authenticated %}
+            <div class="nav">
+                <ul class="topmenu">
+                    <li><a href="" ><img src="{{ user.account.photo.url }}" alt=""></a>
+                    <ul class="submenu">
+                      <li><a href="{% url 'myCourses' %}">Мои курсы</a></li>
+                      <li><a href="{% url 'profile' %}">Настройки</a></li>
+                      <li><a href="{% url 'logout' %}">Выйти</a></li>
+                    </ul>
+                    </li>
+                </ul>
+            </div>
+        {% else %}
+            <form action="{% url 'login' %}" target="_self">
+                <button class="btn block enter">Войти</button>
+            </form>
+        {% endif %}
+    </div>
+</header>
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+    {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+
+{% block main %}
+
+{% endblock main %}
+
+<footer id="footer">
+    <div class="container_footer">
+        <div class="footer-col">
+            <h4><a class="underline" href="#">О нас</a></h4>
+        </div>
+        <div class="footer-col">
+            <h4 class="underline">Присоединяйся</h4>
+            <div class="social-links">
+                <a class="fa fa-telegram" href="#" target="_blank"></a>
+                <a class="fa fa-vk" href="#" target="_blank"></a>
+                <a class="fa fa-github" href="#" target="_blank"></a>
+            </div>
+        </div>
+        <div class="footer-col">
+            <h4><a class="underline" href="#">Что-то еще</a></h4>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
