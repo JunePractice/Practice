@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'schedule',
     'account',
+    'lessons',
+    'feedback',
+    'notification'
 ]
 
 MIDDLEWARE = [
